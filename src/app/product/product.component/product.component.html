@@ -1,0 +1,10 @@
+@for (item of productStore.product$(); track $index) {
+
+<div class="">
+    <!-- <div (click)="productDetails(item)">{{item.brand}}</div> -->
+    <app-product-details-component  [data]="item" (click)="productDetails(item)" />
+    <div>
+        <button (click)="addToCart(item)">Add</button>
+    </div>
+</div>
+}

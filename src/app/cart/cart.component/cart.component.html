@@ -1,0 +1,10 @@
+<p>cart.component works!</p>
+@for (item of this.productStore.cartItems$(); track $index) {
+
+<div class="">
+    <div>{{item.brand}}</div>
+    <div>
+        <button (click)="removeToCart(item)">remove</button>
+    </div>
+</div>
+}
