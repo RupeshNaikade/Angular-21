@@ -30,4 +30,8 @@ export class LoginComponent {
       console.log('Registering user:', form.value);
     }
   }
+
+  formPage() {
+    this.router.navigate(['/form']);
+  }
 }

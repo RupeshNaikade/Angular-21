@@ -2,7 +2,9 @@
 
 <div class="">
     <!-- <div (click)="productDetails(item)">{{item.brand}}</div> -->
-    <app-product-details-component  [data]="item" (click)="productDetails(item)" />
+    <app-product-details-component [data]="item" (click)="productDetails(item)">
+        <p #myref>product-details-component works!</p>
+    </app-product-details-component>
     <div>
         <button (click)="addToCart(item)">Add</button>
     </div>

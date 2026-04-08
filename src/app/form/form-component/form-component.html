@@ -1,0 +1,52 @@
+<p>form-component works!</p>
+
+
+<form (submit)="formSubmit()" [formGroup]="form">
+    <div>
+        FIrst Name
+    </div>
+    <div>
+        <input required formControlName="firstName" />
+    </div>
+    <div>
+        Last Name
+    </div>
+    <div>
+        <input required formControlName="lastName" />
+    </div>
+
+
+
+
+    <button type="submit">Submit</button>
+</form>
+<div>
+    Email
+</div>
+<div>
+    <input [(ngModel)]="email" />
+</div>
+<div>
+    password
+</div>
+<div>
+    <input [(ngModel)]="password" />
+</div>
+
+<div>
+    Email
+</div>
+<div>
+    <input [value]="email" />
+</div>
+<div>
+    password
+</div>
+<div>
+    <input [value]="password" />
+</div>
+
+
+@for(item of data;track $index) {
+<div>{{item.category | smartPipe}}</div>
+}

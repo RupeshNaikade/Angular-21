@@ -1,24 +1,33 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, AfterContentInit, ContentChild, ElementRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ProductService } from '../product.service';
+import { SmartPipePipe } from '../../pipe/smart-pipe-pipe';
 @Component({
   selector: 'app-product-details-component',
-  imports: [],
+  standalone: true,
+  imports: [SmartPipePipe],
   templateUrl: './product-details-component.html',
   styleUrl: './product-details-component.scss',
 })
-export class ProductDetailsComponent implements OnInit, OnChanges {
+export class ProductDetailsComponent implements OnInit, OnChanges, AfterContentInit {
   @Input() data: any;
   @Output() productDetails = new EventEmitter<any>();
+
+  @ContentChild('myref') content!: ElementRef;
 
 
   constructor(public productService: ProductService) {
   }
 
+  ngAfterContentInit() {
+    console.log('product details data after content init', this.content.nativeElement.innerText);
+  }
+
+
   ngOnInit(): void {
 
 
-    var data = this.productService.itemSubject$.subscribe((res)=>{
+    var data = this.productService.itemSubject$.subscribe((res) => {
       console.log('product details data subject', res);
     });
 
